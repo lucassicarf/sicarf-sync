@@ -1,0 +1,23 @@
+{
+  "buildCommand": "npm install",
+  "env": {
+    "SUPABASE_URL": "@supabase_url",
+    "SUPABASE_KEY": "@supabase_key",
+    "SICARF_CPF": "@sicarf_cpf",
+    "SICARF_SENHA": "@sicarf_senha",
+    "SYNC_SECRET": "@sync_secret"
+  },
+  "functions": {
+    "api/*.js": {
+      "runtime": "nodejs18.x",
+      "memory": 3008,
+      "maxDuration": 900
+    }
+  },
+  "crons": [
+    {
+      "path": "/api/sync",
+      "schedule": "0 9 * * *"
+    }
+  ]
+}
